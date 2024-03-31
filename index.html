@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product card</title>
+    <style>
+        body{
+            background-color: wheat;
+        }
+        .container{
+            width: 250px;
+            display: block;
+            margin: 80px auto;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgb(0,0, 0,0.2);
+            background-color: #ffffff;
+        }
+        .prod-img{
+            height: 225px;
+            display: block;
+            margin:  auto;
+            border-radius: 10px;
+        }
+        .img-container{
+            padding: 2px;
+        }
+        .content{
+            width: 200px;
+            display: block;
+            margin: 10px auto;
+        }
+        .small-img{
+          height: 40px;
+          margin-left: 3px;
+          border: 1px solid #663300;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgb(0,0,0.3,0.3);
+        }
+        .small-img:hover{
+            box-shadow: 0 0 10px 2px #acacac;
+        }
+       .text{
+        font-size: 20px;
+        margin-top: -5px;
+       }
+       .price{
+        font-size: 20px;
+        margin-top: -10px;
+       
+       }
+       .btn-buy{
+        border: none;
+        background-color: #5E0010;
+        padding: 8px 15px;
+        border-radius: 10px;
+        display: block;
+        margin: 20px auto;
+        font-size: 18px;
+        color: white;
+       
+       }
+       .img-op{
+        height: 25px;
+       }
+       .increment{
+        display: flex;
+        
+        align-items: center;
+        margin-bottom: 10px;
+       
+       }
+       .align{
+        display: flex;
+        justify-content: space-between;
+       }
+       .text1{
+        font-size: 22px;
+
+        margin: auto 3px;
+       }
+       .Total{
+        margin-left: 30px;
+       }
+       .qauntity{
+        margin-top: -10px;
+       }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="img-container">
+          <img src="watch1.png" class="prod-img" id="prod-img"/>
+        </div>
+        <div class="content">
+        <img src="watch2.png" class="small-img" onclick="watch1()"/>
+        <img src="watch3.png" class="small-img" onclick="watch2()"/>
+        <img src="watch4.png" class="small-img" onclick="watch3()"/>
+        <img src="watch1.png" class="small-img" onclick="watch4()"/>
+        </div>
+        <div class="caption">
+            <p class="text">KNOWZ 
+                Men style Boys Hand Watch</p>
+                <div class="align">
+                <p class="price"><b>₹1999/-</b></p>
+                <p class="qauntity text" id="showqauntity">1 x 1999</p>
+                </div>
+                <div class="increment">
+                <img src="minus.png" class="img-op" onclick="decre()"/>
+                <span class="text1" id="quantity-text">1</span>
+                <img src="add.png" class="img-op" onclick="incre()"/>
+                <p class="Total text1" id="total">Total:1999/-</p>
+                
+            </div>
+                <button type="button" class="btn-buy">Buy Now</button>
+        </div>
+    </div>
+<script>
+
+ function incre(){
+    const quantityText = document.getElementById("quantity-text");
+    const total = document.getElementById("total");
+    const showquantity = document.getElementById("showqauntity")
+    let quantity = parseInt(quantityText.innerText);
+    if(quantity<10){
+    quantityText.innerText = ++quantity;
+    }
+    else{
+        alert('You cant order more than 10 items')
+    }
+    total.innerText =  `Total:${quantity*1999}/-`;
+    showqauntity.innerText = `${quantity} x 1999`;
+ }
+
+ function decre(){
+    const quantityText = document.getElementById("quantity-text");
+    const total = document.getElementById("total");
+    const showquantity = document.getElementById("showqauntity")
+    let quantity = parseInt(quantityText.innerText);
+    if(quantity>1){
+    quantityText.innerText = --quantity;
+    }
+    else{
+        alert('You cant order less than 1 items')
+    }
+    total.innerText =  `Total:${quantity*1999}/-`;
+    showqauntity.innerText = `${quantity} x 1999`;
+   
+ }
+
+
+   function watch1(){
+    const on = document.getElementById("prod-img");
+
+    on.src = 'watch2.png';
+}
+function watch2(){
+    const on = document.getElementById("prod-img");
+
+    on.src = 'watch3.png';
+}
+function watch3(){
+    const on = document.getElementById("prod-img");
+
+    on.src = 'watch4.png';
+}
+function watch4(){
+    const on = document.getElementById("prod-img");
+
+    on.src = 'watch1.png';
+}
+
+
+</script>
+
+</body>
+</html>
